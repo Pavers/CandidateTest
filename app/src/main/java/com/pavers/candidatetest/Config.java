@@ -12,7 +12,7 @@ public class Config {
         return new Retrofit.Builder()
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://40.118.43.110:3000/api/v1/")
+                .baseUrl("http://13.80.107.110:3000/api/v1/")
                 .build();
 
     }
