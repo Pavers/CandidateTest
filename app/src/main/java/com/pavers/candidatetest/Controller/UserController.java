@@ -11,6 +11,8 @@ import com.pavers.candidatetest.Adaptors.UserAdaptor;
 import com.pavers.candidatetest.Config;
 import com.pavers.candidatetest.Modals.UserModal;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import retrofit2.Retrofit;
@@ -62,6 +64,7 @@ public class UserController {
                     @Override
                     public void onNext(List<UserModal> userModals) {
                         if(userModals.size() > 0) {
+                            sorList(userModals);
                             allUsers = userModals;
                         }
 
@@ -71,12 +74,20 @@ public class UserController {
 
     private void displayUsers() {
 
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mainActivity);
         UserAdaptor userAdaptor = new UserAdaptor(allUsers);
         rvUser.setLayoutManager(linearLayoutManager);
         rvUser.setAdapter(userAdaptor);
+    }
 
+    private void sorList (List<UserModal> listIn) {
+
+        Collections.sort(listIn, new Comparator<UserModal>(){
+        public int compare(UserModal left, UserModal right){
+
+            return left.getUserHeaderModal().getUserName().compareToIgnoreCase(right.getUserHeaderModal().getUserName());
+        }
+    });
 
     }
 
