@@ -1,10 +1,16 @@
 package com.pavers.candidatetest.Modals;
 
-public class UserModal {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class UserModal implements Serializable {
 
     private UserHeaderModal userHeaderModal;
     private UserInfoModal userInfoModal;
     private UserImageModal userImageModal;
+    private int mData;
 
     public UserHeaderModal getUserHeaderModal() {
         return userHeaderModal;
@@ -29,4 +35,13 @@ public class UserModal {
     public void setUserImageModal(UserImageModal userImageModal) {
         this.userImageModal = userImageModal;
     }
+
+    public void setId(final int id){
+
+        // TODO need to auto-generate unique userID
+        userHeaderModal.setUserID(id);
+        userInfoModal.setUserID(id);
+        userImageModal.setUserID(id);
+    }
+
 }

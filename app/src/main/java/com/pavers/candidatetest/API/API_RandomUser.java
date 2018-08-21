@@ -8,10 +8,10 @@ import rx.Observable;
 
 public interface API_RandomUser {
 
-    @GET("/")
+    @GET("/?inc=picture&")
     Observable<UserImageModal> getImage(
-            @Query("inc") String include,
             @Query("gender") String sex
     );
+
 
 }
