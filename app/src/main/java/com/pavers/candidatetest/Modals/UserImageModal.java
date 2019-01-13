@@ -1,6 +1,8 @@
 package com.pavers.candidatetest.Modals;
 
-public class UserImageModal {
+import java.io.Serializable;
+
+public class UserImageModal implements Serializable {
 
     private int userID;
     private String picture;

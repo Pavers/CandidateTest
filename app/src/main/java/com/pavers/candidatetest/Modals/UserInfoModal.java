@@ -1,6 +1,8 @@
 package com.pavers.candidatetest.Modals;
 
-public class UserInfoModal {
+import java.io.Serializable;
+
+public class UserInfoModal implements Serializable {
 
     private int userID;
     private int userStartDate;
